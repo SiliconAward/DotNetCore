@@ -1,0 +1,60 @@
+﻿@using Kendo.Mvc.UI
+@using SiliconAward.Controllers;
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@section styles{
+    <link rel="stylesheet" href='@Url.Content("~/kendo/kendo.bootstrap-v4.min.css")' />
+<style>
+    #btn-create {
+        margin: 20px 0 20px 0;
+    }
+    .main-content{
+
+    }
+</style>
+}
+<script src='@Url.Content("~/lib/jquery/dist/jquery.min.js")'></script>
+<script src='@Url.Content("~/kendo/kendo.all.min.js")'></script>
+<script src='@Url.Content("~/kendo/kendo.aspnetmvc.min.js")'></script>
+
+
+<div id="main-content">
+    <h4 class="form-header">
+         All Competitions
+    </h4>
+    <div>
+        <a id="btn-create" href="create" class="btn btn-primary text-white">Create New Competition</a>
+    </div>
+    <div>
+        @(Html.Kendo().Grid<SiliconAward.DataAccess.ViewModels.Competition.CompetitionViewModel>()
+    .Name("Grid")
+    .Columns(columns => {
+        //columns.Bound(p => p.Id).Groupable(false);
+        columns.Bound(p => p.Title).Width(150);
+        columns.Bound(p => p.Description).Width(250);
+        columns.Bound(p => p.StartCompetition).Width(200);
+        columns.Bound(p => p.EndCompetition).Width(200);
+    })
+    .Pageable()
+    .Sortable()
+    .Filterable()
+    .Scrollable()
+    .Groupable()
+    .DataSource(dataSource => dataSource
+        .Ajax()
+        .Read(read => read.Action("CustomAjaxBinding_Read", "Competition"))
+    )
+)
+    </div>
+
+
+
+
+</div>
+@section scripts{
+    <script src='@Url.Content("~/kendo/kendo.all.min.js")'></script>
+    <script src='@Url.Content("~/kendo/kendo.aspnetmvc.min.js")'></script>
+}

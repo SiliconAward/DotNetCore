@@ -1,0 +1,214 @@
+﻿@model SiliconAward.DataAccess.ViewModels.Competition.CompetitionViewModel
+
+@{
+    ViewData["Title"] = "Create Competition";
+}
+@section styles{
+    <link rel="stylesheet" href='@Url.Content("~/kendo/kendo.bootstrap-v4.min.css")' />
+
+}
+<style>
+    label {
+        white-space: nowrap;
+    }
+
+    .k-readonly {
+        color: gray;
+    }
+</style>
+
+<script src='@Url.Content("~/lib/jquery/dist/jquery.min.js")'></script>
+<script src='@Url.Content("~/kendo/kendo.all.min.js")'></script>
+<script src='@Url.Content("~/kendo/kendo.aspnetmvc.min.js")'></script>
+<form id="main-content" action="Create" method="post">
+    <h4 class="form-header">
+        Create Competition
+    </h4>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="row">
+        <div class="form-group  col-xl-6 col-lg-6 col-md-6">
+            <input asp-for="Title" type="text" class="form-control" id="exampleInputEmail1" placeholder="Title">
+            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group   col-xl-6 col-lg-6 col-md-6">
+            <div class="form-group">
+                <div class="demo-section k-content">
+                    @(Html.Kendo().DropDownList()
+            .OptionLabel("Select reward...")
+          .Name("reward")
+          .DataTextField("Text")
+          .DataValueField("Value")
+          .DataSource(source =>
+          {
+              source.Read(read =>
+              {
+                  read.Action("GetRewards", "Competition");
+              });
+          })
+          .HtmlAttributes(new { style = "width: 100%" })
+    )
+                    @Html.ValidationMessageFor(model => model.Reward, "", new { @class = "text-danger" })
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="form-group  col-xl-6 col-lg-6 col-md-6">
+            <div class="form-group">
+                <div class="demo-section k-content">
+                    @(Html.Kendo().DropDownList()
+              .Name("skillGroups")
+              .HtmlAttributes(new { style = "width:100%" })
+              .OptionLabel("Select group...")
+              .DataTextField("Text")
+              .DataValueField("Value")
+              .DataSource(source =>
+              {
+                  source.Read(read =>
+                  {
+                      read.Action("GetSkillGroups", "Competition");
+                  });
+              })
+    )
+                </div>
+            </div>
+
+        </div>
+        <div class="form-group   col-xl-6 col-lg-6 col-md-6">
+            <div class="form-group">
+                <div class="demo-section k-content">
+                    @(Html.Kendo().DropDownList()
+              .Name("skillField")
+              .HtmlAttributes(new { style = "width:100%" })
+              .OptionLabel("Select field...")
+              .DataTextField("Text")
+              .DataValueField("Value")
+              .DataSource(source =>
+              {
+                  source.Read(read =>
+                  {
+                      read.Action("GetSkillFields", "Competition")
+                          .Data("filterSkillField");
+                  })
+                  .ServerFiltering(true);
+              })
+              .Enable(false)
+              .AutoBind(false)
+              .CascadeFrom("skillGroups"))
+                    @Html.ValidationMessageFor(model => model.SkillField, "", new { @class = "text-danger" })
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <textarea asp-for="Description" class="form-control" rows="5" placeholder="Description"></textarea>
+        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+
+    </div>
+
+    <div class="row">
+
+        <div class="form-group col-lg-6">
+            <label for="exampleInputEmail1">Start Competition</label>
+            <div>
+                @(Html.Kendo().DateTimePicker()
+          .Name("startCompetition")
+          .Value(DateTime.Today)
+          .Max(DateTime.Today)
+          .ParseFormats(new string[] { "MM/dd/yyyy" })
+          .Events(e => e.Change("startChange"))
+          .HtmlAttributes(new { style = "width:250px;" }))
+
+            </div>
+        </div>
+        <div class="form-group  col-lg-6">
+            <label for="exampleInputEmail1">End Competition</label>
+            <div>
+                @(Html.Kendo().DateTimePicker()
+          .Name("endCompetition")
+          .Value(DateTime.Today)
+          .Min(DateTime.Today)
+          .ParseFormats(new string[] { "MM/dd/yyyy" })
+          .Events(e => e.Change("endChange"))
+          .HtmlAttributes(new { style = "width:250px;" }))
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary form-submit">Submit</button>
+</form>
+
+
+
+
+
+
+
+
+@section scripts{
+    <script src='@Url.Content("~/kendo/kendo.all.min.js")'></script>
+    <script src='@Url.Content("~/kendo/kendo.aspnetmvc.min.js")'></script>
+
+    <script>
+        function startChange() {
+            var start = $("#startCompetition").data("kendoDateTimePicker");
+            var end = $("#endCompetition").data("kendoDateTimePicker");
+            var startDate = start.value();
+            var endDate = end.value();
+
+            if (startDate) {
+                startDate = new Date(startDate);
+                startDate.setDate(startDate.getDate());
+                end.min(startDate);
+            } else if (endDate) {
+                start.max(new Date(endDate));
+            } else {
+                endDate = new Date();
+                start.max(endDate);
+                end.min(endDate);
+            }
+        }
+
+        function endChange() {
+            var start = $("#startCompetition").data("kendoDateTimePicker");
+            var end = $("#endCompetition").data("kendoDateTimePicker");
+            var endDate = end.value();
+            var startDate = start.value();
+
+            if (endDate) {
+                endDate = new Date(endDate);
+                endDate.setDate(endDate.getDate());
+                start.max(endDate);
+            } else if (startDate) {
+                end.min(new Date(startDate));
+            } else {
+                endDate = new Date();
+                start.max(endDate);
+                end.min(endDate);
+            }
+        }
+        function filterSkillField() {
+            return {
+                skillGroups: $("#skillGroups").val()
+            };
+        }
+
+     
+
+        $(document).ready(function () {
+            var skillGroups = $("#skillGroups").data("kendoDropDownList"),
+                skillFields = $("#skillField").data("kendoDropDownList");
+
+            $("#get").click(function () {
+                var skillGroupsInfo = "\nCategory: { id: " + skillGroups.value() + ", name: " + skillGroups.text() + " }",
+                    skillFieldsInfo = "\nProduct: { id: " + skillFields.value() + ", name: " + skillFields.text() + " }";
+                    alert("Order details:\n" + skillGroupsInfo + skillFieldsInfo);
+            });
+        });
+</script>
+}

@@ -1,0 +1,9 @@
+C:\Users\Ali Taheri\source\repos\BaseProject\SiliconAward.Common\bin\Debug\netcoreapp3.1\SiliconAward.Common.deps.json
+C:\Users\Ali Taheri\source\repos\BaseProject\SiliconAward.Common\bin\Debug\netcoreapp3.1\SiliconAward.Common.dll
+C:\Users\Ali Taheri\source\repos\BaseProject\SiliconAward.Common\bin\Debug\netcoreapp3.1\SiliconAward.Common.pdb
+C:\Users\Ali Taheri\source\repos\BaseProject\SiliconAward.Common\obj\Debug\netcoreapp3.1\SiliconAward.Common.csprojAssemblyReference.cache
+C:\Users\Ali Taheri\source\repos\BaseProject\SiliconAward.Common\obj\Debug\netcoreapp3.1\SiliconAward.Common.csproj.CoreCompileInputs.cache
+C:\Users\Ali Taheri\source\repos\BaseProject\SiliconAward.Common\obj\Debug\netcoreapp3.1\SiliconAward.Common.AssemblyInfoInputs.cache
+C:\Users\Ali Taheri\source\repos\BaseProject\SiliconAward.Common\obj\Debug\netcoreapp3.1\SiliconAward.Common.AssemblyInfo.cs
+C:\Users\Ali Taheri\source\repos\BaseProject\SiliconAward.Common\obj\Debug\netcoreapp3.1\SiliconAward.Common.dll
+C:\Users\Ali Taheri\source\repos\BaseProject\SiliconAward.Common\obj\Debug\netcoreapp3.1\SiliconAward.Common.pdb

@@ -1,0 +1,49 @@
+
+
+.content .form-otp {
+  
+    width: 44%;
+    text-align: center;
+    margin: auto;
+  }
+  .content .form-otp hr {
+    width: 50%;
+  }
+  .content .form-otp h1 {
+    color: #ffffff;
+    margin-top: 80px;
+    font-weight: 700;
+    text-shadow: 4px 4px 4px rgba(255, 255, 255, 0.2);
+  }
+  .content .input-code {
+    margin-top: 50px;
+    padding: 0 100px;
+    display: flex;
+    flex-direction: auto;
+    justify-content: space-around;
+    align-content: space-between;
+  }
+  .content .otp-number-input {
+    background-color: transparent;
+    text-align: center;
+    line-height: 70px;
+    font-size: 40px;
+    outline: none;
+    width: 10%;
+    transition: all .2s ease-in-out;
+    border-radius: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid #d4d4d4;
+    margin-bottom: 48px;
+  }
+  .content .otp-number-input:focus {
+    border-bottom: 2px solid orange;
+  }
+  .content .otp-number-input::selection {
+    background: transparent;
+  }
+  .content .verif-b-orange {
+    border-bottom: 2px solid orange;
+  }

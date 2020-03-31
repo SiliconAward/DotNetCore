@@ -1,0 +1,375 @@
+﻿@await Component.InvokeAsync("NToastNotify")
+
+<html>
+
+<head>
+    <link rel="stylesheet" href='@Url.Content("~/lib/bootstrap/dist/css/bootstrap.min.css")' />
+    <link rel="stylesheet" href='@Url.Content("~/lib/opt/style.css")'>
+
+    <style>
+
+        body {
+            margin: 0;
+            /* border: 1px solid #c1c1c1; */
+        }
+
+        div {
+            margin: 0;
+        }
+
+        .margin-zero {
+            margin: 0;
+        }
+
+        ::placeholder {
+            /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: #4014af !important;
+            opacity: 0.5 !important;
+        }
+
+        :-ms-input-placeholder {
+            /* Internet Explorer 10-11 */
+            color: #4014af !important;
+            opacity: 0.5 !important;
+        }
+
+        ::-ms-input-placeholder {
+            /* Microsoft Edge */
+            color: #4014af !important;
+            opacity: 0.5 !important;
+        }
+
+        input[type="radio"] {
+            display: none;
+        }
+
+            input[type="radio"] + label:before {
+                content: "";
+                /* create custom radiobutton appearance */
+                display: inline-block;
+                width: 25px;
+                height: 25px;
+                padding: 3px;
+                margin-right: 3px;
+                /* background-color only for content */
+                background-clip: content-box;
+                border: 2px solid #bbbbbb;
+                background-color: #e7e6e7;
+                border-radius: 50%;
+            }
+
+        .form-group input {
+            background-color: #e9e3f9;
+            color: #2d0592;
+            border-bottom: 1px solid #2d0592;
+        }
+
+        /* appearance for checked radiobutton */
+        input[type="radio"]:checked + label:before {
+            background-color: #2d0592;
+            border: 2px solid #2d0592;
+        }
+
+        /* optional styles, I'm using this for centering radiobuttons */
+        label {
+            display: flex;
+            align-items: center;
+        }
+
+        #page-elements {
+            width: -webkit-fill-available;
+            height: -webkit-fill-available;
+        }
+
+        #image-logo {
+            display: block;
+            text-align: center;
+        }
+
+        .steps {
+            display: block;
+            text-align: center;
+            font-family: sans-serif;
+            color: #2d0592;
+        }
+
+        .step-header {
+            font-size: 49px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.88;
+            letter-spacing: 2.45px;
+            white-space: nowrap;
+        }
+
+        .step-text {
+            font-size: 23px;
+            font-weight: lighter;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 0.8;
+            letter-spacing: 0.43px;
+            color: #2d0592;
+        }
+
+        .step-email {
+            color: black;
+        }
+
+        .step-confirm {
+            object-fit: contain;
+            border-radius: 25px;
+            box-shadow: 0 3px 6px 0 rgba(45, 5, 146, 0.16);
+            background-image: linear-gradient(179deg, #ff0075 6%, #2d0592 139%);
+            color: white;
+        }
+
+        .step-button {
+            display: block;
+            width: 30%;
+            margin: auto;
+        }
+
+        .step-confirm {
+            width: 100%;
+            height: 45px;
+        }
+
+        .step-button p {
+            font-size: 17px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 2.7;
+            letter-spacing: normal;
+        }
+
+        #step-counter {
+            width: 32%;
+            margin: auto;
+            padding: 40px 0 50px 0;
+            height: 120px;
+        }
+
+        #step1 {
+            float: left;
+        }
+
+            #step1 span {
+                position: relative;
+                right: 45px;
+                color: #2d0592;
+            }
+
+        #step2 {
+            float: right;
+            direction: rtl;
+        }
+
+            #step2 span {
+                position: relative;
+                left: 8px;
+            }
+
+        #separator {
+            border-bottom: 1px solid #a3a3a3;
+            margin: 0px 33px;
+            position: relative;
+            top: 12px;
+        }
+
+        #step-two-form {
+            width: 39%;
+            margin: auto;
+            padding: 30px 0 0 0;
+        }
+
+        #fullname-help {
+            text-align: left;
+            padding-left: 14px;
+            font-size: 12px;
+            position: relative;
+            bottom: 5px;
+        }
+
+        #step-two-from form {
+            height: 50%;
+        }
+
+            #step-two-from form .form-group {
+                height: 15%;
+            }
+
+
+        /* Extra small devices (phones, 600px and down) */
+        @@media only screen and (max-width: 1000px) {
+            #step-two-form {
+                width: 52%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="page-elements">
+        <div id="image-logo">
+            <img src='@Url.Content("~/img/output-onlinepngtools.png")' title="Silicon Awards" alt="Silicon Awards">
+        </div>
+        <div id="stepper">
+            <div id="step-counter">
+                <div id="step1">
+                    <input type="radio" name="radio1" id="radio1" />
+                    <label for="radio1"></label>
+                    <span>verification email</span>
+                </div>
+                <div id="separator"></div>
+                <div id="step2">
+                    <input type="radio" name="radio2" id="radio2" />
+                    <label for="radio2"></label>
+                    <span>profile</span>
+                </div>
+
+            </div>
+
+            <div id="step-one" class="steps">
+                <H1 class="step-header">
+                    Let's confirm your email
+                </H1>
+                <span class="step-text">type in the code we sent to </span>
+                <span class=" step-text step-email">EMAIL@GMAIL.COM</span>
+
+
+                <!-- partial:index.partial.html -->
+                <section id="wrapper" ng-app="otp">
+                    <div class="content" ng-controller="otpCtrl">
+                        <form ng-submit="profile.submitPhone()" name="profile.formTelephone" class="form-otp"
+                              no-validate>
+                            <div class="row">
+                                <div class="input-code">
+                                    <input type="text" id="otp-number-input-1" class="otp-number-input" maxlength="1"
+                                           ng-change="myFunc(this)" ng-model="myValue1" numbers-only>
+
+                                    <input type="text" id="otp-number-input-2" class="otp-number-input" maxlength="1"
+                                           ng-change="myFunc(this)" ng-model="myValue2" numbers-only>
+
+                                    <input type="text" id="otp-number-input-3" class="otp-number-input" maxlength="1"
+                                           ng-change="myFunc(this)" ng-model="myValue3" numbers-only>
+
+                                    <input type="text" id="otp-number-input-4" class="otp-number-input" maxlength="1"
+                                           ng-change="myFunc(this)" ng-model="myValue4" numbers-only>
+
+                                    <input type="text" id="otp-number-input-5" class="otp-number-input" tabindex="5"
+                                           maxlength="1" ng-change="myFunc(this)" ng-model="myValue5" numbers-only>
+                                    <input type="text" id="otp-number-input-6" class="otp-number-input" maxlength="1"
+                                           ng-change="myFunc(this)" ng-model="myValue6" numbers-only>
+                                </div>
+                                <input type="hidden" name="otp-number" id="otp-number" class="" maxlength="6">
+                            </div>
+
+                        </form>
+                    </div>
+                </section>
+
+                <div class="step-button">
+                    <button id="step-one-confirm" class="step-confirm next" name="next" value="Next"
+                            type="button">
+                        Confirm
+                    </button>
+
+                    <p>Didn't receive the code? Send again</p>
+                </div>
+            </div>
+
+            <div id="step-two" class="steps">
+                <H1 class="step-header">
+                    Welcome <span>misaqh008</span>
+                </H1>
+                <span class="step-text">Complete your profile to take on the challenges </span>
+
+                <div id="step-two-form">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="fullname" aria-describedby="emailHelp"
+                                   placeholder="Full name">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="phonenumber" placeholder="Phone number">
+                            @*<small id="fullname-help" class="form-text text-muted">Helper text</small>*@
+
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="locatiom" placeholder="Locatiom">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="your-skill" placeholder="Your skill">
+                        </div>
+
+                    </form>
+
+                </div>
+                <div class="step-button">
+                    <button id="step-two-confirm" class="step-confirm next" name="next" value="Next" type="button">
+                        Go to profile
+                    </button>
+
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script src='@Url.Content("~/lib/jquery/dist/jquery.min.js")'></script>
+    <script src='@Url.Content("~/lib/bootstrap/dist/js/bootstrap.min.js")'></script>
+    <script src='@Url.Content("~/lib/js/angular.min.js")'></script>
+    <script src='@Url.Content("~/lib/opt/script.js")'></script>
+
+    <script>
+        $('label[for="radio1"]').click();
+        $('#step-two').hide();
+$('#step2').click(false);
+
+        //enableSteptwo();
+
+        $('#step-one-confirm').click(function () {
+            enableSteptwo();
+        })
+        function enableSteptwo() {
+            $('#step-one').hide();
+            $('#step-two').show();
+            $("#separator").css({ "border": "1px solid #2d0592" })
+            $("label[for='radio2']").click();
+            $('#step-counter #step2 span').css({ "color": "#2d0592" })
+        }
+
+
+
+        $(function () {
+            $("#step-one-confirm").click(function () {
+                var code = $('#otp-number').val().toString();
+                if (code.length == 6) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/user/EmailVerification/" + code,
+                        data: null,
+                        success: function (response) {
+                        },
+                        failure: function (response) {
+                        },
+                        error: function (response) {
+                        }
+                    });
+                }
+                else {
+                }
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>

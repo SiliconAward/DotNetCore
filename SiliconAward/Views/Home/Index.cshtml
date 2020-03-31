@@ -1,0 +1,330 @@
+﻿<html>
+
+<head>
+
+    <link rel="stylesheet" href='@Url.Content("~/lib/bootstrap/dist/css/bootstrap.min.css")' />
+    <style>
+        body,
+        div {
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none !important;
+        }
+
+            a:hover {
+                color: #ffffff !important;
+            }
+
+
+        #bc-page {
+            min-width: 100%;
+            min-height: 100%;
+            margin: auto;
+        }
+
+            #bc-page #img-bc-page {
+                width: 100%;
+            }
+
+        #menu {
+            display: inline-block;
+            height: 200px;
+            width: 100%;
+            position: absolute;
+            left: -3px;
+            text-align: center;
+        }
+
+        #menu-items {
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-top: 24px;
+        }
+
+            #menu-items li {
+                width: 14%;
+                text-align: center;
+                white-space: nowrap;
+            }
+
+                #menu-items li #silicon-logo {
+                    width: 135px;
+                }
+
+        .like-orange{
+            color: #f8dd82;
+            font-family: Cairo;
+            font-size: 16px;
+            font-weight: 600;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.88;
+            letter-spacing: 0.8px;
+            text-align: left;
+        }
+        #menu-items {
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-top: 24px;
+        }
+
+            #menu-items li {
+                white-space: nowrap;
+                text-align: center;
+                white-space: nowrap;
+                margin: auto 0;
+                width: auto;
+                padding: 0 2%;
+            }
+
+                #menu-items li #silicon-logo {
+                    width: 135px;
+                }
+
+        li a {
+            color: white;
+        }
+
+        #desc {
+            width: 33%;
+            padding: 35px;
+            text-align: justify;
+            position: relative;
+            bottom: 155px;
+        }
+
+
+            #desc p {
+                font-family: Cairo;
+                font-size: 16px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.44;
+                letter-spacing: normal;
+                color: #2d0592;
+                margin-top: 0;
+            }
+
+            #desc h3 {
+                margin: auto 0 7px 0;
+                font-size: 26px;
+                background: -webkit-linear-gradient(#d7a6ea, #810dd2, #c7089e);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                font-weight: 400;
+            }
+
+        .col {
+            padding: 0;
+            margin: 0;
+        }
+
+        #btn-challange {
+            text-align: center;
+        }
+
+            #btn-challange input {
+                object-fit: contain;
+                border-radius: 25px;
+                box-shadow: 0 3px 6px 0 rgba(45, 5, 146, 0.16);
+                background-image: linear-gradient(179deg, #ff0075 3%, #2d0592 147%);
+                color: white;
+                width: 59%;
+                height: 50px;
+                font-family: Cairo;
+                font-size: 24px;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.88;
+                letter-spacing: normal;
+                font-weight: normal;
+            }
+
+        #member .member-text {
+            object-fit: contain;
+            background-color: #eae6f4;
+            padding: 12px;
+            font-size: 13px;
+            text-align: justify;
+            border-radius: 12px;
+            width: 88%;
+            color: #2d0592
+        }
+
+        #cup .cup-text {
+            object-fit: contain;
+            background-color: #fff8ed;
+            padding: 12px;
+            font-size: 13px;
+            text-align: justify;
+            border-radius: 12px;
+            width: 88%;
+            color: #fcb645
+        }
+
+        #cup .section-header {
+            color: #fcb645;
+        }
+
+        #member .section-header {
+            color: #2d0592;
+        }
+
+        .section-header {
+            padding: 0px 0 0 4px;
+            font-family: Cairo;
+            font-size: 22px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.88;
+            letter-spacing: normal;
+            text-align: left;
+            display: inline;
+        }
+
+        .section-img {
+            padding: 0 0px 0px 8px;
+            position: relative;
+            bottom: 5px;
+        }
+
+        @@media (min-width: 992px) {
+            .col-lg-2 {
+                max-width: 16.2% !important;
+            }
+        }
+
+        @@media (max-width: 992px) {
+            #btn-challange input {
+                font-size: 16px;
+                width: 85%;
+                margin-bottom: 20px;
+            }
+
+            #cup,
+            #member {
+                padding: 20px 20px;
+            }
+        }
+
+        @@media (max-width: 880px) {
+            #menu-items li {
+                width: 19%;
+            }
+
+            .section-img {
+                width: 34px;
+            }
+
+            .section-header {
+                font-size: 18px;
+            }
+
+            #desc {
+                bottom: 85px;
+            }
+
+        }
+
+        @@media (max-width: 767px) {
+            #menu-items {
+                display: none;
+            }
+
+            #desc {
+                bottom: 25px;
+            }
+
+            #menu-items li a,
+            #menu-items li span,
+            #menu-items li p {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="bc-page">
+        <img id="img-bc-page" src="@Url.Content("~/img/bc-mainpage-min.png")" alt="image back ground" title="image back ground">
+        <div id="menu">
+            <ul id="menu-items">
+                <li class="userinfo">
+                    <div>
+                        <a class="login" href="#"> Login</a>
+                        <span class="like-orange"> Or </span>
+                        <a class="join" href="#"> Join free</a>
+                    </div>
+                </li>
+                
+                <li>
+                    <a class="like-orange" href="#">Chalenges</a>
+                </li>
+                <li><a href="#"> <img id="silicon-logo" src="@Url.Content("~/img/Group723.png")" alt="silicon logo" title="silicon logo"></a>
+                </li>
+                <li>
+                    <a class="like-orange" href="contactus"> Contact us</a>
+                </li>
+                <li>
+                    <a class="like-orange" href="aboutus">About us</a>
+                </li>
+            </ul>
+        </div>
+       
+        <div id="last-row" class="row">
+            <div id="desc" class="col-lg-4 col-md-12  col-sm-6 col-xl-4 col-12 col">
+                <h3>What is this?</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing eliti, sed do eiusmod teimpor inricididunt iut
+                    rlaborre
+                    consectetur adipiscing eliti, sed do eiusmod teimpor et dolore magna aliqua.wsditii Egestas purus
+                    viverra consectetur adipiscing eliti, sed do eiusmod teimpor inricididunt iut rlaborre et dolore
+                    magna
+                </p>
+            </div>
+            <div id="btn-challange" class="col-lg-4 col-md-12 col-sm-6 col-xl-4 col-12   col">
+                <input type="button" value="Challange Yourself">
+            </div>
+            <div id="cup" class="col-lg-2  col-md-12 col-sm-12 col-xl-2  col-12  col">
+                <div class="cup-header">
+
+                    <img class="section-img" src="@Url.Content("~/img/Union-1.png")" alt="cup" title="cup">
+                    <h3 class="section-header">1.000 USD</h3>
+                </div>
+                <div class="cup-text">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing eliti,
+                        sed do eiusmod teimpor inricididunt iut rlaborre.
+                    </p>
+                </div>
+            </div>
+            <div id="member" class="col-lg-2  col-md-12  col-sm-12 col-xl-2 col-12  col">
+                <div class="member-header">
+                    <img class="section-img" src="@Url.Content("~/img/Union-2.png")" alt="member" title="member">
+
+                    <h3 class="section-header">254.203</h3>
+                </div>
+                <div class="member-text">
+                    <p>
+                        Lorem ipsum dolorit amwiiieti consectetur adipscing elit, sed do eiusmod tepor inrcriididunt ut
+                        rlaborre et dolore.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src='@Url.Content("~/lib/jquery/dist/jquery.min.js")'></script>
+    <script src='@Url.Content("~/lib/bootstrap/dist/js/bootstrap.min.js")'></script>
+    <script>
+    </script>
+</body>
+
+</html>

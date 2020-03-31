@@ -1,0 +1,224 @@
+﻿<html>
+
+<head>
+
+    <link rel="stylesheet" href='@Url.Content("~/lib/bootstrap/dist/css/bootstrap.min.css")' />
+    <style>
+        html {
+            height: 100%;
+            background-image: linear-gradient(to right, rgb(87, 5, 139), rgb(0, 5, 152));
+        }
+
+        body {
+            height: 100%;
+            background-repeat: no-repeat;
+            background-image: linear-gradient(149deg, #b8057d 9%, #000598 78%);
+        }
+
+        .color-white {
+            color: white !important;
+        }
+
+        body,
+        div {
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none !important;
+        }
+
+            a:hover {
+                color: #ffffff !important;
+            }
+
+
+
+        #bc-page #img-bc-page {
+            width: 100%;
+        }
+
+        #menu {
+            display: inline-block;
+            height: 200px;
+            width: 100%;
+            position: absolute;
+            left: -3px;
+            text-align: center;
+        }
+
+        #menu-items {
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-top: 24px;
+        }
+
+            #menu-items li {
+                white-space: nowrap;
+                text-align: center;
+                white-space: nowrap;
+                margin: auto 0;
+                width: auto;
+                padding: 0 2%;
+            }
+
+                #menu-items li #silicon-logo {
+                    width: 135px;
+                }
+
+        .like-orange {
+            font-family: Cairo;
+            font-size: 16px;
+            font-weight: 600;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.88;
+            letter-spacing: 0.8px;
+            text-align: left;
+            position: relative;
+            bottom: 6px;
+        }
+
+            .like-orange a {
+                color: #f8dd82;
+            }
+
+        .main {
+            position: absolute;
+            bottom: 0;
+            height: 80%;
+            right: 50;
+        }
+
+        .content {
+            background: white; 
+            margin: auto;
+            border-radius: 10px 10px 0 0;
+            width: 90%;
+            text-align: center;
+            height: 100%;
+        }
+        .developer {
+            text-align: center;
+            padding: 5px 0 12px 0;
+        }
+
+            .developer img {
+                max-width: 100%;
+                height: auto;
+            }
+
+        .text {
+            width: 60%;
+            text-align: justify;
+            color: #224dc2;
+            font-size: 14px;
+            margin: auto;
+        }
+
+        .userinfo {
+            position: relative;
+            /* bottom: 6px; */
+        }
+
+            .userinfo img {
+                width: 40px;
+                border-radius: 50%;
+                border: 1px solid white;
+                height: 40px;
+            }
+
+            .userinfo a {
+                font-size: 18px;
+                position: relative;
+                top: 2px;
+            }
+
+        @@media (max-width: 1200px) {
+            .text {
+                width: 90%;
+            }
+        }
+
+        @@media (max-width: 880px) {
+            html, body {
+                background-image: initial;
+            }
+            #menu-items li {
+                width: 19%;
+            }
+            .color-white {
+                color: #cc7417 !important;
+            }
+        }
+
+
+        @@media (max-width: 767px) {
+
+
+            #menu-items {
+                display: none;
+            }
+
+            .text {
+                width: 92%;
+            }
+
+            body {
+                background-color: white;
+                background-image: initial;
+            }
+
+            .content {
+                width: 100%;
+                border-radius: 0;
+            }
+
+            .main {
+                position: initial;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="bc-page">
+        <div id="menu">
+            <ul id="menu-items">
+                <li class="userinfo like-orange">
+                    <img src="@Url.Content("~/img/Group723.png")" alt="user image" title="user image">
+                    <a href="#">misagh008</a>
+                </li>
+                <li class="like-orange">
+                    <a href="#">Chalenges</a>
+                </li>
+                <li> <a href="index"><img id="silicon-logo" src="@Url.Content("~/img/Group723.png")" alt="silicon logo" title="silicon logo"></a></li>
+                <li class="like-orange">
+                    <a class="color-white" href="contactus"> Contact us</a>
+                </li>
+                <li class="like-orange">
+                    <a href="#">About us</a>
+                </li>
+            </ul>
+        </div>
+        <div class="main">
+            <div class="content">
+                <div class="developer">
+                    <img src="@Url.Content("~/img/dev.png")" title="developer" alt="developer">
+                </div>
+                <div class="text">
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src='@Url.Content("~/lib/jquery/dist/jquery.min.js")'></script>
+    <script src='@Url.Content("~/lib/bootstrap/dist/js/bootstrap.min.js")'></script>
+</body>
+
+</html>

@@ -1,0 +1,9 @@
+C:\Users\Ali Taheri\source\repos\BaseProject\SiliconAward.Infrastructure\bin\Debug\netcoreapp3.1\SiliconAward.Infrastructure.deps.json
+C:\Users\Ali Taheri\source\repos\BaseProject\SiliconAward.Infrastructure\bin\Debug\netcoreapp3.1\SiliconAward.Infrastructure.dll
+C:\Users\Ali Taheri\source\repos\BaseProject\SiliconAward.Infrastructure\bin\Debug\netcoreapp3.1\SiliconAward.Infrastructure.pdb
+C:\Users\Ali Taheri\source\repos\BaseProject\SiliconAward.Infrastructure\obj\Debug\netcoreapp3.1\SiliconAward.Infrastructure.csprojAssemblyReference.cache
+C:\Users\Ali Taheri\source\repos\BaseProject\SiliconAward.Infrastructure\obj\Debug\netcoreapp3.1\SiliconAward.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Ali Taheri\source\repos\BaseProject\SiliconAward.Infrastructure\obj\Debug\netcoreapp3.1\SiliconAward.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Ali Taheri\source\repos\BaseProject\SiliconAward.Infrastructure\obj\Debug\netcoreapp3.1\SiliconAward.Infrastructure.AssemblyInfo.cs
+C:\Users\Ali Taheri\source\repos\BaseProject\SiliconAward.Infrastructure\obj\Debug\netcoreapp3.1\SiliconAward.Infrastructure.dll
+C:\Users\Ali Taheri\source\repos\BaseProject\SiliconAward.Infrastructure\obj\Debug\netcoreapp3.1\SiliconAward.Infrastructure.pdb

@@ -1,0 +1,357 @@
+﻿@model SiliconAward.DataAccess.ViewModels.AspNetUser.ContactUsViewModel
+@await Component.InvokeAsync("NToastNotify")
+
+
+<html>
+<head>
+
+    <link rel="stylesheet" href='@Url.Content("~/lib/bootstrap/dist/css/bootstrap.min.css")' />
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <style>
+        html {
+            height: 100%;
+            background-image: linear-gradient(to right, rgb(87, 5, 139), rgb(0, 5, 152));
+        }
+
+        body {
+            height: 100%;
+            background-repeat: no-repeat;
+            background-image: linear-gradient(149deg, #b8057d 9%, #000598 78%);
+        }
+
+        .color-white {
+            color: white !important;
+        }
+
+        body,
+        div {
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none !important;
+        }
+
+            a:hover {
+                color: #ffffff !important;
+            }
+
+        ::placeholder {
+            /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: #5332a6 !important;
+            opacity: 0.5 !important;
+        }
+
+        :-ms-input-placeholder {
+            /* Internet Explorer 10-11 */
+            color: #5332a6 !important;
+            opacity: 0.5 !important;
+        }
+
+        ::-ms-input-placeholder {
+            /* Microsoft Edge */
+            color: #5332a6 !important;
+            opacity: 0.5 !important;
+        }
+
+        select {
+            height: 40px;
+            color: #2d0592;
+            opacity: 0.5;
+            width: 100%;
+        }
+
+        textarea {
+            height: 300px !important;
+        }
+
+        select,
+        textarea {
+            object-fit: contain;
+            border-radius: 4px !important;
+            background-color: #eae6f4 !important;
+        }
+
+        .form-group {
+            padding: 4px 0 1px 0
+        }
+
+
+        #bc-page #img-bc-page {
+            width: 100%;
+        }
+
+        #menu {
+            display: inline-block;
+            height: 200px;
+            width: 100%;
+            position: absolute;
+            left: -3px;
+            text-align: center;
+        }
+
+        #menu-items {
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-top: 24px;
+        }
+
+            #menu-items li {
+                white-space: nowrap;
+                text-align: center;
+                white-space: nowrap;
+                margin: auto 0;
+                width: auto;
+                padding: 0 2%;
+            }
+
+                #menu-items li #silicon-logo {
+                    width: 135px;
+                }
+
+        .like-orange {
+            font-family: Cairo;
+            font-size: 16px;
+            font-weight: 600;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.88;
+            letter-spacing: 0.8px;
+            text-align: left;
+            position: relative;
+            bottom: 6px;
+        }
+
+            .like-orange a {
+                color: #f8dd82;
+            }
+
+        .main {
+            position: absolute;
+            bottom: 0;
+            height: 80%;
+            right: 50;
+        }
+
+        .content {
+            background: white;
+            margin: auto;
+            border-radius: 10px 10px 0 0;
+            width: 90%;
+            text-align: center;
+        }
+
+        .developer {
+            text-align: center;
+            padding: 5px 0 12px 0;
+        }
+
+            .developer img {
+                max-width: 100%;
+                height: auto;
+            }
+
+        .text {
+            text-align: justify;
+            color: #224dc2;
+            font-size: 14px;
+            margin: auto;
+        }
+
+        .userinfo {
+            position: relative;
+            /* bottom: 6px; */
+        }
+
+            .userinfo img {
+                width: 40px;
+                border-radius: 50%;
+                border: 1px solid white;
+                height: 40px;
+            }
+
+            .userinfo a {
+                font-size: 18px;
+                position: relative;
+                top: 2px;
+            }
+
+        .description {
+            padding-top: 25px;
+        }
+
+            .description img {
+                width: 100%;
+                height: auto;
+            }
+
+        .form-contact {
+            padding: 50px 30px 10px 30px;
+        }
+
+        .form-header {
+            font-family: Cairo;
+            font-size: 18px;
+            font-weight: 600;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.83;
+            letter-spacing: 0.9px;
+            text-align: left;
+            color: #2d0592;
+        }
+
+        form {
+            text-align: left;
+        }
+
+        .btn-send {
+            width: 100%;
+            height: 40px;
+            object-fit: contain;
+            border-radius: 25px;
+            box-shadow: 0 3px 6px 0 rgba(45, 5, 146, 0.16);
+            background-image: linear-gradient(179deg, #ff0075 4%, #2d0592 145%);
+            color: white;
+        }
+
+        @@media (max-width: 880px) {
+           
+            html,body {
+                background-image: initial;
+            }
+            #menu-items li {
+                width: 19%;
+            }
+            .color-white {
+                color: #cc7417 !important;
+            }
+        }
+
+        @@media (max-width: 767px) {
+         
+            #menu-items {
+                display: none;
+            }
+
+            .text {
+                width: 92%;
+            }
+
+            .description {
+                background-color: white;
+            }
+
+            .content {
+                width: 100%;
+                border-radius: 0;
+            }
+
+            .main {
+                position: initial;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="bc-page">
+        <div id="menu">
+            <ul id="menu-items">
+                <li class="userinfo like-orange">
+                    <img src="@Url.Content("~/img/Group723.png")" alt="user image" title="user image">
+                    <a href="#">misagh008</a>
+                </li>
+                <li class="like-orange">
+                    <a href="#">Chalenges</a>
+                </li>
+                <li> <a href="index"><img id="silicon-logo" src="@Url.Content("~/img/Group723.png")" alt="silicon logo" title="silicon logo"></a></li>
+                <li class="like-orange">
+                    <a class="color-white" href="#"> Contact us</a>
+                </li>
+                <li class="like-orange">
+                    <a href="aboutus">About us</a>
+                </li>
+            </ul>
+        </div>
+        <div class="main row content">
+            <div class="form-contact col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                <h3 class="form-header">Submit a request</h3>
+                <form id="frm-contactus" action="contactus" method="POST">
+                    <div class="form-group">
+                        <select asp-for="SubjectId" name="SubjectId" id="subjectId">
+                            <option value="0">Select a Subject</option>
+                            <option value="1">text1</option>
+                            <option value="2">text2</option>
+                            <option value="3">text3</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea asp-for="Message" class="form-control" id="message" placeholder="Write a message"></textarea>
+                    </div>
+                    <div class="btn-captcha row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            @*<button type="button" class="btn-send">Captcha</button>*@
+
+                            @* <div class="g-recaptcha" data-sitekey="6LfvJOUUAAAAAN0WvJtV6wtNHRs1Se4G9XiIxSr0"></div>*@
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <div class="g-recaptcha" data-sitekey="@Model.CaptchaSitekey"></div>
+                                    @Html.ValidationMessage("recaptchaerror", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <button type="submit" class="btn-send">Send message</button>
+
+                        </div>
+
+
+                    </div>
+
+                </form>
+            </div>
+
+            <div class="description  col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                <img src="@Url.Content("~/img/contactus.png")" alt="contact us" title="contact us">
+                <div class="text">
+                    <p>
+                        Please enter the details of your request and, if you have any questions regarding our
+                        Terms of Use, please include specific samples of the usage you wish to give our
+                        resouces. If you’re reporting a problem, make sure to include as much information as
+                        possible. Please include any screenshots or videos of issues since this will also help us
+                        resolve problems much sooner. Once your request is submitted, a member of our
+                        support staff will respond as soon as possible.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src='@Url.Content("~/lib/jquery/dist/jquery.min.js")'></script>
+    <script src='@Url.Content("~/lib/bootstrap/dist/js/bootstrap.min.js")'></script>
+    <script>
+
+        setTimeout(resetFrom(), 3000);
+
+        //reset all fields after submit form
+        function resetFrom() {
+            $('#subjectId').val(0);
+            $('#message').val('');
+
+        }
+
+    </script>
+ @*   <script src="https://www.google.com/recaptcha/api.js"></script>*@
+    @*<script src="https://www.google.com/recaptcha/api.js?render=6LfvJOUUAAAAAN0WvJtV6wtNHRs1Se4G9XiIxSr0"></script>
+    <script>
+        grecaptcha.ready(function () {
+            grecaptcha.execute('6LfvJOUUAAAAAN0WvJtV6wtNHRs1Se4G9XiIxSr0', { action: 'test' }).then(function (token) {
+        });
+});
+    </script>*@
+</body>
+
+</html>

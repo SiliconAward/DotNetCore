@@ -1,0 +1,10 @@
+ => from main project
+ 
+           dotnet ef migrations add Initial  -o ../SiliconAward.DataAccess/Data/Migrations 
+                    -c ApplicationDbContext  --startup-project ../SiliconAward/
+
+          dotnet ef database update   -c ApplicationDbContext  --startup-project ../SiliconAward/
+
+
+          dotnet ef migrations add Initial
+          dotnet ef database update

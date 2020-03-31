@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "SiliconAward.Common/1.0.0": {
+        "runtime": {
+          "SiliconAward.Common.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SiliconAward.Common/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

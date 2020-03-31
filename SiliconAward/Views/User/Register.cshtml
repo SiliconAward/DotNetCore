@@ -1,0 +1,339 @@
+﻿@model SiliconAward.DataAccess.ViewModels.AspNetUser.RegisterViewModel
+@await Component.InvokeAsync("NToastNotify")
+
+
+<html>
+
+<head>
+
+    <link rel="stylesheet" href='@Url.Content("~/lib/bootstrap/dist/css/bootstrap.min.css")' />
+    <link rel="stylesheet" href='@Url.Content("~/lib/fontawesome-free-5.13.0-web/css/all.css")' />
+
+    <style>
+        body {
+                margin: 0;
+            }
+
+            div {
+                display: inline-block;
+                margin: 0;
+            }
+
+
+
+
+#elements {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            margin: auto;
+        }
+
+#main-elements {
+        background-color: #0b0455;
+            width: 80%;
+            height: 75%;
+            border-radius: 10px;
+            margin: auto;
+        }
+
+#form-elements {
+    width: 40%;
+        }
+
+        /* laptop */
+        .laptop {
+            width: 489.1px;
+            height: 331.3px;
+            object-fit: contain;
+        }
+
+        .coffee {
+            width: 66px;
+            height: 183.2px;
+            object-fit: contain;
+            /* my */
+            position: absolute;
+            left: 86px;
+            top: -33px;
+        }
+
+        #laptop-bc .laptop-cover {
+            width: 518px;
+            height: 550px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .silicon-bc {
+            width: 900px;
+            height: 575px;
+            object-fit: contain;
+        }
+
+        #silicon-icon {
+            width: 100%;
+            height: 25%;
+            object-fit: contain;
+            text-align: center;
+            padding-top: 8px;
+        }
+
+            #silicon-icon img {
+                margin-top: 20px;
+            }
+
+        #form-elements {
+            width: 100%;
+        }
+
+            #form-elements form {
+                height: 63%;
+                margin: 10px 0 0 0;
+                padding: 30px 20px 0 20px;
+            }
+
+        form div {
+    width: 100%;
+    height: 16%;
+}
+
+form div input {
+                width: 80% !important;
+                margin: auto;
+                object-fit: contain;
+                border: 0px solid black !important;
+                border-bottom: 1px solid rgb(158, 144, 144) !important;
+                background-color: #231d66 !important;
+            }
+
+        form .div-submit {
+            text-align: center;
+        }
+
+        form button.btn-submit {
+    object-fit: contain;
+    border-radius: 25px;
+    box-shadow: 0 3px 6px 0 rgba(45, 5, 146, 0.16);
+    background-image: linear-gradient(179deg, #ff0075 4%, #2d0592 145%);
+            width: 80% !important;
+    margin: auto;
+    border: 0px;
+}
+
+
+
+        ::placeholder {
+            /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: #fcb645 !important;
+            opacity: 0.5 !important;
+        }
+
+        :-ms-input-placeholder {
+            /* Internet Explorer 10-11 */
+            color: #fcb645 !important;
+            opacity: 0.5 !important;
+        }
+
+        ::-ms-input-placeholder {
+            /* Microsoft Edge */
+            color: #fcb645 !important;
+            opacity: 0.5 !important;
+        }
+
+        input {
+            color: rgb(255, 245, 217) !important;
+        }
+
+
+        form div small {
+            width: 70%;
+            margin: auto;
+            font-family: Cairo;
+            font-size: 12px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.92;
+            letter-spacing: normal;
+            text-align: left;
+            color: #ffffff;
+            position: relative;
+            bottom: 4px;
+        }
+
+        #forget-password {
+            height: 12%;
+            width: 100%;
+            text-align: center;
+        }
+
+            #forget-password span {
+                color: white;
+                font-size: 14px;
+            }
+
+            #forget-password a {
+                color: #fcb645;
+                font-size: 14px;
+                text-decoration: none;
+            }
+
+        #page-background {
+            background-color: antiquewhite;
+            background-image: url('@Url.Content("~/img/Rectangle321.png")');
+background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            min-width: 100%;
+            min-height: 100%;
+            margin: auto;
+        }
+
+        #laptop-img-cover {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .img-laptop {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+            .img-laptop img {
+    width: 100%;
+    height: 100%;
+    border-radius: 0 10px 10px 0;
+}
+
+        .p-hello {
+            position: absolute;
+            color: white;
+            width: 100%;
+            margin: auto;
+        }
+
+            .p-hello p {
+    margin: auto;
+    text-align: center;
+    display: table;
+    height: 100%;
+    font-size: 56px;
+    color: #FCB645;
+                padding: 9%;
+}
+
+        .row {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+
+        .form-section {
+            width: 100%;
+            height: 100%;
+        }
+
+        @@media only screen and (max-width: 1000px) {
+        #laptop-img-cover {
+            display: none;
+            margin-top: 0;
+            }
+        }
+
+        @@media only screen and (max-height: 600px) {
+            #silicon-icon img {
+                margin-top: 0;
+            }
+        }
+
+        .field-icon {
+            float: right;
+            margin-left: -25px;
+            margin-top: -25px;
+            position: relative;
+            z-index: 2;
+            right: 50px;
+            bottom: 2px;
+            color: white;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="page-background">
+
+        <div id="elements">
+            <div id="main-elements">
+                <div class="row">
+                    <div class="col-lg-5 col-md-0 col-sm-0 col-xs-0 form-section">
+                        <div id="form-elements">
+                            <div id="silicon-icon">
+                                <img src="@Url.Content("~/img/Group723.png")" alt="silicon icon" title="silicon icon" />
+                            </div>
+                            <form action="Register" method="post">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" asp-for="UserName" id="username" aria-describedby="emailHelp"
+                                           placeholder="Email">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" asp-for="Email" id="email" aria-describedby="emailHelp"
+                                           placeholder="Username">
+                                    @*              <small id="emailHelp" class="form-text">Helper text</small>*@
+                                </div>
+                                <div class="form-group">
+                                    <input id="password-field" type="password" asp-for="Password" class="form-control" placeholder="Password" name="password">
+                                  
+                                    <i toggle="#password-field" class="far fa-eye  field-icon toggle-password"></i>
+                                  
+                                </div>
+                                <div class="form-group div-submit">
+                                    <button type="submit" class="btn btn-primary btn-submit">Join now</button>
+                                </div>
+                            </form>
+                            <div id="forget-password">
+                                <span>Already a member?</span> <span><a href="#">Log in</a></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="laptop-img-cover" class="col-lg-7 col-md-12 col-sm-12 col-xs-12 ">
+                        <div class="img-laptop">
+                            <img src="@Url.Content("~/img/Capture.PNG")" alt="laptop" title="laptop">
+                        </div>
+                        <div class="p-hello">
+                            <p>Hello!</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src='@Url.Content("~/lib/jquery/dist/jquery.min.js")'></script>
+    <script src='@Url.Content("~/lib/bootstrap/dist/js/bootstrap.min.js")'></script>
+    <script>
+        $(function () {
+
+            $(".toggle-password").click(function () {
+
+                $(this).toggleClass("fa-eye fa-eye-slash");
+                var input = $($(this).attr("toggle"));
+                if (input.attr("type") == "password") {
+                    input.attr("type", "text");
+                } else {
+                    input.attr("type", "password");
+                }
+            });
+        })
+    </script>
+</body>
+
+</html>
